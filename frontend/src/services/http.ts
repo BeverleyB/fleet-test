@@ -1,13 +1,15 @@
 import axios from 'axios';
 
+import {IMoviesList} from '../interfaces/IMoviesList'
+import { IMovie } from '../interfaces/IMovie';
+
 const apiKey = process.env.REACT_APP_TMDB_API_KEY;
 const url = 'https://api.themoviedb.org/3'
 
-export async function getAllMovies(): Promise<any> {
+export async function getAllMovies(): Promise<IMoviesList | boolean> {
     try {
-        const req = await axios.get(`${url}/movie/11?api_key=${apiKey}`);
-        console.log(req)
-		return req;
+        const req = await axios.get(`${url}/discover/movie?api_key=${apiKey}`);
+		return req.data;
 	}
 	catch (e) {
 		console.error('No data founds, please contact support.');
@@ -15,11 +17,10 @@ export async function getAllMovies(): Promise<any> {
 	}
 }
 
-export async function getMovieById(id: string): Promise<any> {
+export async function getMovieById(id: number): Promise<IMovie | boolean> {
     try {
-        const req = await axios.get(`${url}/movie/11?api_key=${apiKey}`);
-        console.log(req)
-		return req;
+        const req = await axios.get(`${url}/movie/${id}?api_key=${apiKey}`);
+		return req.data;
 	}
 	catch (e) {
 		console.error('No movie found with this id.');
@@ -27,11 +28,10 @@ export async function getMovieById(id: string): Promise<any> {
 	}
 }
 
-export async function searchMovie(query: string): Promise<any> {
+export async function searchMovie(query: string): Promise<IMoviesList | boolean> {
     try {
-        const req = await axios.get(`${url}/search/movie?query=${query}&api_key=${apiKey}`);
-        console.log(req)
-		return req;
+        const req = await axios.get(`${url}/search/movie?api_key=${apiKey}&query=${query}`);
+		return req.data;
 	}
 	catch (e) {
 		console.error('No data founds, please contact support.');

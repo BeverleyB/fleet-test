@@ -1,0 +1,69 @@
+#SearchBar {
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+    background-color: #baeec2;
+    padding: 0 30px;
+
+    .logo {
+        background: url('../../assets/logo.png') no-repeat center;
+        background-size: contain;
+        width: 100px;
+        height: auto;
+        cursor: pointer;
+    }
+
+    .container-searchbar {
+        width: 70%;
+
+        .search-bar {
+            height: 100%;
+            width: 100%;
+            padding: 0 0 0 20px;
+            border: none;
+
+            &:active,
+            &:focus-visible {
+                border: none;
+                outline: none;
+            }
+        }
+
+        .search-list {
+            background-color: black;
+            color: white;
+            list-style: none;
+            padding-left: 20px;
+
+            .finded-movie {
+                display: flex;
+                align-items: center;
+                height: 50px;
+                cursor: pointer;
+
+                &:hover {
+                    .title-movie {
+                        font-size: 17px;
+                    }
+                }
+
+                .movie-pic {
+                    width: auto;
+                    height: 100%;
+                }
+
+                .title-movie {
+                    font-size: 15px;
+                    font-weight: 400;
+                    padding-left: 20px;
+                }
+            }
+        }
+
+    }
+
+}

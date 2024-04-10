@@ -34,7 +34,6 @@ function MovieDetail() {
             const movieDetail = await getMovieById(parseInt(movieId));
             if (typeof movieDetail === 'boolean') return;
             setMovie(movieDetail);
-            console.log(movieDetail)
         } else {
             navigate('/');
         }

@@ -33,7 +33,7 @@ function SearchBar() {
 
     async function onSearchMovie() {
         const searchResult = await searchMovie(query);
-        setMovies(searchResult.results)
+        if (typeof searchResult !== 'boolean') setMovies(searchResult.results)
     }
 
     function onClickOutside(event) {
@@ -58,9 +58,9 @@ function SearchBar() {
 
             { movies.length >= 1 &&
                 <ul className="search-list">
-                    { movies.slice(0, 10).map(movie => 
-                        <li className="finded-movie" onClick={() => navigate(`/movie/${movie.id}`)}>
-                            <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt="Movie poster" className="movie-pic" />
+                    { movies.slice(0, 15).map(movie => 
+                        <li className="finded-movie" key={movie.id} onClick={() => navigate(`/movie/${movie.id}`)}>
+                            <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} alt="Movie poster" className="movie-pic" />
                             <h3 className="title-movie">{movie.title}</h3>
                         </li>
                     )}

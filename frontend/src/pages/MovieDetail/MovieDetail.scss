@@ -4,11 +4,24 @@
     color: white;
     padding: 30px 60px;
     display: flex;
+    flex-direction: column;
+
+    @media (min-width: $screen-md-min) { 
+        flex-direction: row;
+    }
 
     .movie-pic {
-        width: 30%;
+        width: 70%;
         height: auto;
-        margin-right: 50px;
+        align-self: center;
+        margin-bottom: 50px;
+
+        @media (min-width: $screen-md-min) { 
+            align-self: baseline;
+            width: 30%;
+            margin-bottom: 0;
+            margin-right: 50px;
+        }
     }
 
     .container-right {
@@ -41,6 +54,8 @@
         .categories {
             display: flex;
             margin-top: 10px;
+            flex-wrap: wrap;
+            gap: 20px 0;
 
             .genre {
                 background-color: $light-green;
@@ -55,6 +70,7 @@
 
         .production-companies {
             margin-top: 20px;
+            line-height: 30px;
 
             .production {
                 color: $medium-green;

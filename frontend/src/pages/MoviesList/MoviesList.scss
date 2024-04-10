@@ -9,12 +9,15 @@
         margin: 0;
         padding: 2rem;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
+
+        @media (min-width: $screen-md-min) { 
+            grid-template-columns: repeat(4, 1fr);
+        }
 
         @media (min-width: $screen-xl-min) { 
             grid-template-columns: repeat(5, 1fr);
-
         }
 
         .item-movie {

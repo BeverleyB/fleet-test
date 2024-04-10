@@ -44,3 +44,10 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## IMPORTANT ! Environment Variables
+
+For run the project, please add environment variables in an .env file at the root of the frontend folder.
+You neen REACT_APP_TMDB_API_KEY variables equal to your API key TMDB
+
+Generate an API key (as described here : (https://developer.themoviedb.org/docs/getting-started) ). 
